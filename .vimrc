@@ -23,6 +23,7 @@ autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
 autocmd BufWrite * mark ' | silent! g/^[\s\l\n]*\%$/d | norm ''
 
 au BufReadCmd   *.svc.gz      call tar#Browse(expand("<amatch>"))
+au BufReadCmd   *.ds.gz       call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.gem         call tar#Browse(expand("<amatch>"))
 
 " Omni completion (autocomplete) options
