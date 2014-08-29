@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
 git_bundles = []
+git_bundles.push "git://github.com/flazz/vim-colorschemes.git"
+git_bundles.push "git://github.com/scrooloose/nerdtree.git"
 #git_bundles.push "git://github.com/ecomba/vim-ruby-refactoring.git"
 #git_bundles.push "git://github.com/godlygeek/tabular.git"
 #git_bundles.push "git://github.com/groenewege/vim-less.git"
@@ -11,7 +13,6 @@ git_bundles = []
 #git_bundles.push "git://github.com/kien/ctrlp.vim.git"
 #git_bundles.push "git://github.com/nelstrom/vim-textobj-rubyblock.git"
 #git_bundles.push "git://github.com/pangloss/vim-javascript.git"
-git_bundles.push "git://github.com/scrooloose/nerdtree.git"
 #git_bundles.push "git://github.com/sickill/vim-pasta.git"
 #git_bundles.push "git://github.com/timcharper/textile.vim.git"
 #git_bundles.push "git://github.com/tomtom/tcomment_vim.git"
