@@ -22,6 +22,8 @@ autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
 " trim whitespace at end of file on any write
 autocmd BufWrite * mark ' | silent! g/^[\s\l\n]*\%$/d | norm ''
 
+au BufReadCmd   *.sonas.gz    call tar#Browse(expand("<amatch>"))
+au BufReadCmd   *.xiv.gz      call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.svc.gz      call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.ds.gz       call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.gem         call tar#Browse(expand("<amatch>"))
