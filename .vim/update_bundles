@@ -45,7 +45,7 @@ autoload_dir=File.join(base_dir, "autoload")
 FileUtils.rm_rf(autoload_dir)
 FileUtils.mkdir(autoload_dir)
 FileUtils.cd(autoload_dir)
-`wget https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim -O pathogen.vim`
+`wget https://tpo.pe/pathogen.vim`
 
 bundles_dir = File.join(base_dir, "bundle")
 FileUtils.rm_rf(bundles_dir)
