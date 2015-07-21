@@ -26,6 +26,9 @@ au BufReadCmd   *.sonas.gz    call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.xiv.gz      call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.svc.gz      call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.ds.gz       call tar#Browse(expand("<amatch>"))
+au BufReadCmd   *.vmware.gz   call tar#Browse(expand("<amatch>"))
+au BufReadCmd   *.netapp7mode.gz   call tar#Browse(expand("<amatch>"))
+au BufReadCmd   *.ibmi.Z      call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.gem         call tar#Browse(expand("<amatch>"))
 
 " Omni completion (autocomplete) options
