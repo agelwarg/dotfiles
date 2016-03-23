@@ -30,6 +30,8 @@ au BufReadCmd   *.vmware.gz   call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.netapp7mode.gz   call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.ibmi.Z      call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.ibmi.gz     call tar#Browse(expand("<amatch>"))
+au BufReadCmd   *.brocade.gz  call tar#Browse(expand("<amatch>"))
+au BufReadCmd   *.ds8k.gz     call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.gem         call tar#Browse(expand("<amatch>"))
 
 au BufNewFile,BufRead *.rspec set filetype=ruby
