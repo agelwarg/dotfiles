@@ -3,6 +3,7 @@
 git_bundles = []
 git_bundles.push "git://github.com/flazz/vim-colorschemes.git"
 git_bundles.push "git://github.com/scrooloose/nerdtree.git"
+git_bundles.push "git://github.com/fatih/vim-go.git"
 #git_bundles.push "git://github.com/ecomba/vim-ruby-refactoring.git"
 #git_bundles.push "git://github.com/godlygeek/tabular.git"
 #git_bundles.push "git://github.com/groenewege/vim-less.git"
