@@ -6,8 +6,9 @@ _dir="$(cd $(dirname $0); pwd)"
 mkdir -p ~/.ssh chmod 700 ~/.ssh
 for i in ${_dir}/ssh/*; do
   if [ ! -f ~/.ssh/$(basename $i) ]; then
-    cp $i ~/.ssh/$(basename $i) && chmod go-rwx ~/.ssh/$(basename $i)
+    cp $i ~/.ssh/$(basename $i)
   fi
+  chmod go-rwx ~/.ssh/$(basename $i)
 done
 
 for i in vim vimrc screenrc inputrc; do
