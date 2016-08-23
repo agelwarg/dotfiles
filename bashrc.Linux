@@ -1,0 +1,10 @@
+# GIT: prompt
+_git_prompt=/usr/share/git-core/contrib/completion/git-prompt.sh
+if [ -f ${_git_prompt} ]; then
+  source ${_git_prompt}
+  PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
+  GIT_PS1_SHOWCOLORHINTS=1
+fi
+
+# User specific aliases and functions
+alias gpe="goto ~/src/gpe-server"
