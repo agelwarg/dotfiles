@@ -1,0 +1,27 @@
+[user]
+  name = Adam Gelwarg
+  email = adam@gelwarg.net
+
+[color]
+  status = auto
+  branch = auto
+  interactive = auto
+  diff = auto
+
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  ba = branch -a
+  fp = format-patch --stdout
+  cp = cherry-pick -x
+  l  = log --oneline --graph
+  ll = log --graph
+[push]
+  default = simple
+[pull]
+  rebase = preserve
+
+[diff]
+  tool = vimdiff

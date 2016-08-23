@@ -11,7 +11,7 @@ for i in ${_dir}/ssh/*; do
   chmod go-rwx ~/.ssh/$(basename $i)
 done
 
-for i in vim vimrc screenrc inputrc; do
+for i in vim vimrc screenrc inputrc gitconfig; do
   rm -rf ~/.$i && ln -s ${_dir}/$i ~/.$i
 done
 
