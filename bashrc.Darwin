@@ -6,10 +6,10 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
-  source ${_git_prompt}
   PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
   GIT_PS1_SHOWCOLORHINTS=1
 fi
 
 # User specific aliases and functions
+alias ls='ls -G'
 alias gpe="goto ~/src/galileo/gpe-server"

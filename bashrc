@@ -14,8 +14,9 @@ PATH=~/ruby/bin:$PATH
 export PATH
 
 _os=$(uname -s)
-[ -f ~/.bashrc.${_os} ] && source ~/.bashrc.${_os}
-[ -f ~/.bashrc.local ]  && source ~/.bashrc.local
+for _bashrc in ".bashrc.${_os}" .bashrc.local; do
+  [ -f "$HOME/${_bashrc}" ] && source "$HOME/${_bashrc}"
+done
 
 [ -z "${BASE_PATH}" ] && export BASE_PATH=$HOME/src/scripts:$PATH:/usr/local/bin
 goto () {
@@ -28,7 +29,6 @@ goto () {
 }
 
 # User specific aliases and functions
-alias ls='ls --color=auto'
 alias vim='TERM=xterm-256color vim'
 
 u () { rake database:migrate:force:up file=$1; }

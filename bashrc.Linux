@@ -7,4 +7,5 @@ if [ -f ${_git_prompt} ]; then
 fi
 
 # User specific aliases and functions
+alias ls='ls --color=auto'
 alias gpe="goto ~/src/gpe-server"
