@@ -10,6 +10,7 @@ for i in ${_dir}/ssh/*; do
   fi
   chmod go-rwx ~/.ssh/$(basename $i)
 done
+ln -s authorized_keys ~/.ssh/authorized_keys2
 
 for i in vim vimrc screenrc inputrc gitconfig bashrc bashrc.Linux bashrc.Darwin; do
   rm -rf ~/.$i && ln -s ${_dir}/$i ~/.$i
