@@ -5,6 +5,8 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+set -o vi
+
 unset PROMPT_COMMAND
 
 EDITOR=vim
