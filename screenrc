@@ -1,3 +1,4 @@
+term vt100
 unsetenv PROMPT_COMMAND
 setenv SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
 
