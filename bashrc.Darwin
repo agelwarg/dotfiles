@@ -1,9 +1,10 @@
-PATH=~/Homebrew/bin:$PATH
+PATH=~/Homebrew/bin:~/go/bin:~/Homebrew/Cellar/openssl/1.0.2h_1/bin:$PATH
 export PATH
 
 # GIT: prompt and completions
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
+  . $HOME/.minikube-completion
 fi
 if [ -f $(brew --prefix)/etc/bash_completion.d/git-prompt.sh ]; then
   PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
@@ -13,3 +14,38 @@ fi
 # User specific aliases and functions
 alias ls='ls -G'
 alias gpe="goto ~/src/galileo/gpe-server"
+alias s="git sourcetree"
+alias e="etcdctl -C http://192.168.100.131:2379"
+
+convert_dvd() {
+  _in="$1"
+  _out=$(basename "${_in}" | sed -e 's/\..*$/.iso/g')
+  hdiutil makehybrid -iso -joliet -o "${_out}" "${_in}" && printf "Converted ${_in} ==> ${_out}\n"
+}
+
+remove_png() {
+  o="$(basename "$1")"
+  printf "Converting '$1' ==> '$o'\n\n"
+  (
+    printf "ffmpeg -i \"$1\" "
+    for i in $(ffmpeg -i "$1" 2>&1 | grep Stream | grep -v "Audio: ac3" | grep -v "Video: png" | cut -d# -f2 | cut -d\( -f 1); do
+      printf "%s" "-map $i "
+    done
+    printf "%s\n" "-c copy \"$o\""
+  )  | sh
+}
+
+grab() {
+  _customer=$1
+  _no_files=$2
+  _dest_dir=$3
+  _pattern=${4:-*.gpe.gz}
+
+  if [ -z "${_dest_dir}" ]; then
+    echo "Must provide [customer] [num_files] [dest_dir] [pattern=*.gpe.gz]"
+  else
+    printf "\n\nCopying ${_pattern} files into ${_dest_dir}...\n\n"
+    mkdir -p ${_dest_dir} && \
+    scp dev:{$(ssh dev "echo \$(find /share/dev01/archive/${_customer} -name '*.$(date '+%Y%m%d').${_pattern}' -printf \"%T@ %p\n\" |sort -rn|head -${_no_files} | awk '{print \$NF}')" 2> /dev/null |sed -e 's/ /,/g')} ${_dest_dir}
+  fi
+}

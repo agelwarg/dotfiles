@@ -12,15 +12,12 @@ unset PROMPT_COMMAND
 EDITOR=vim
 export EDITOR
 
-PATH=~/ruby/bin:$PATH
-export PATH
-
 _os=$(uname -s)
 for _bashrc in ".bashrc.${_os}" .bashrc.local; do
   [ -f "$HOME/${_bashrc}" ] && source "$HOME/${_bashrc}"
 done
 
-[ -z "${BASE_PATH}" ] && export BASE_PATH=$HOME/src/scripts:$PATH:/usr/local/bin
+[ -z "${BASE_PATH}" ] && export BASE_PATH=$PATH:/usr/local/bin:$HOME/src/scripts
 goto () {
   cd ${1}
   _base="$(pwd)"
