@@ -1,4 +1,4 @@
-PATH=~/Homebrew/bin:~/go/bin:~/Homebrew/Cellar/openssl/1.0.2h_1/bin:$PATH
+PATH=~/Homebrew/bin:~/go/bin:~/Homebrew/opt/openssl/bin:$PATH
 export PATH
 
 # GIT: prompt and completions
