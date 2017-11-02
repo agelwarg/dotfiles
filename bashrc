@@ -17,7 +17,7 @@ for _bashrc in ".bashrc.${_os}" .bashrc.local; do
   [ -f "$HOME/${_bashrc}" ] && source "$HOME/${_bashrc}"
 done
 
-[ -z "${BASE_PATH}" ] && export BASE_PATH=$PATH:/usr/local/bin:$HOME/src/scripts
+[ -z "${BASE_PATH}" ] && export BASE_PATH=$PATH:/usr/local/bin:$HOME/src/scripts:$HOME/bin
 goto () {
   cd ${1}
   _base="$(pwd)"
