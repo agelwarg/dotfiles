@@ -23,7 +23,7 @@ goto () {
   cd ${1}
   _base="$(pwd)"
   export PATH="${BASE_PATH}"
-  export PATH="$HOME/src/gpe-server/vendor/ruby/bin:${PATH}" # ruby
+  #export PATH="$HOME/src/gpe-server/vendor/ruby/bin:${PATH}" # ruby
   export PATH="${_base}/BUILD:${PATH}" # agents
   export PATH="${_base}/bin:${_base}/vendor/ruby/bin:${_base}/node_modules/.bin:${PATH}" # server
 }

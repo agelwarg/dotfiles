@@ -17,21 +17,23 @@ set guioptions+=T
 colorscheme wombat256mod
 
 " trim trailing whitespace on any write
-autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
+ autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
 
 " trim whitespace at end of file on any write
-autocmd BufWrite * mark ' | silent! g/^[\s\l\n]*\%$/d | norm ''
+ autocmd BufWrite * mark ' | silent! g/^[\s\l\n]*\%$/d | norm ''
 
 au BufReadCmd   *.sonas.gz    call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.xiv.gz      call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.svc.gz      call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.ds.gz       call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.vmware.gz   call tar#Browse(expand("<amatch>"))
+au BufReadCmd   *.cisco_mds.gz   call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.netapp7mode.gz   call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.ibmi.Z      call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.ibmi.gz     call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.brocade.gz  call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.ds8k.gz     call tar#Browse(expand("<amatch>"))
+au BufReadCmd   *.flash.gz    call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.gem         call tar#Browse(expand("<amatch>"))
 
 au BufNewFile,BufRead *.rspec set filetype=ruby
