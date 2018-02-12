@@ -34,6 +34,7 @@ au BufReadCmd   *.ibmi.gz     call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.brocade.gz  call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.ds8k.gz     call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.flash.gz    call tar#Browse(expand("<amatch>"))
+au BufReadCmd   *.gpfscluster.gz    call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.gem         call tar#Browse(expand("<amatch>"))
 
 au BufNewFile,BufRead *.rspec set filetype=ruby
