@@ -1,11 +1,11 @@
 #!/bin/sh
 _new_app_window() {
   tmux new-window -n APP-$1 "ssh -t g01plapp01 sudo -i"
-  tmux splitw -h -p 50      "ssh -t g01plapp03 sudo -i"
-  tmux splitw -v -p 66      "ssh -t g01plapp04 sudo -i"
+  tmux splitw -h -p 50      "ssh -t g01plapp04 sudo -i"
   tmux splitw -v -p 50      "ssh -t g01plapp05 sudo -i"
   tmux select-pane -t 0
-  tmux splitw -v -p 50      "ssh -t g01plapp02 sudo -i"
+  tmux splitw -v -p 66      "ssh -t g01plapp02 sudo -i"
+  tmux splitw -v -p 50      "ssh -t g01plapp03 sudo -i"
   tmux select-pane -t 0
 }
 
@@ -36,18 +36,6 @@ _send_password() {
   done
 }
 
-_send_keys() {
-  _cmd="$1"
-  shift
-  for _window in $*; do
-    tmux select-window -t "${_window}"
-    tmux setw synchronize-panes on
-    tmux send-keys "${_cmd}" C-m
-    tmux setw synchronize-panes off
-  done
-
-}
-
 _session="KARL"
 tmux new -s "${_session}" -d
 if [ $? -eq 0 ]; then
@@ -64,13 +52,39 @@ if [ $? -eq 0 ]; then
   _new_db_window 1
   _new_db_window 2
 
+  # Send sudo password
   _send_password APP-1 APP-2 DB-1 DB-2
-  _send_keys "set -o vi && cd /docker/deploy/prd/prd-01" APP-1 APP-2
-  _send_keys "set -o vi && cd /docker/deploy/database" DB-1 DB-2
 
+  # Init app windows
+  for _window in APP-1 APP-2; do
+    tmux select-window -t "${_window}"
+    tmux select-pane -t 0
+    tmux send-keys "set -o vi && cd /docker/deploy/dev/dev-01" C-m
+    for _pane in 1 2 3 4; do
+      tmux select-pane -t ${_pane}
+      tmux send-keys "set -o vi && cd /docker/deploy/prd/prd-01" C-m
+    done
+    tmux select-pane -t 0
+  done
+
+  # Init database windows
+  for _window in DB-1 DB-2; do
+    tmux select-window -t "${_window}"
+    tmux select-pane -t 0
+    tmux send-keys "set -o vi && cd /docker/deploy/database/g01pldb01" C-m
+    tmux select-pane -t 1
+    tmux send-keys "set -o vi && cd /docker/deploy/database/g01pldb02" C-m
+    tmux select-pane -t 2
+    tmux send-keys "set -o vi && cd /docker/deploy/database/g01pldb03" C-m
+    tmux select-pane -t 3
+    tmux send-keys "set -o vi && cd /docker/deploy/database/g01dldb01" C-m
+    tmux select-pane -t 0
+  done
+
+  # Start vim
   tmux select-window -t "vim"
-  _send_keys "gpe && vim" vim
-  _send_keys ":NERDTree" vim
+  tmux send-keys "gpe && vim" C-m
+  tmux send-keys ":NERDTree" C-m
 fi
 
 tmux attach -t "${_session}"
