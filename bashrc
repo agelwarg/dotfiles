@@ -12,16 +12,16 @@ unset PROMPT_COMMAND
 EDITOR=vim
 export EDITOR
 
-_os=$(uname -s)
-for _bashrc in ".bashrc.${_os}" .bashrc.local; do
-  [ -f "$HOME/${_bashrc}" ] && source "$HOME/${_bashrc}"
-done
-
 # Build PATH
 PATH=$BASE_PATH
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:$HOME/src/scripts
 PATH=$PATH:$HOME/bin
+
+_os=$(uname -s)
+for _bashrc in ".bashrc.${_os}" .bashrc.local; do
+  [ -f "$HOME/${_bashrc}" ] && source "$HOME/${_bashrc}"
+done
 
 # rbenv
 PATH=$PATH:$HOME/.rbenv/bin
