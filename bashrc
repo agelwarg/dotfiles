@@ -17,10 +17,15 @@ for _bashrc in ".bashrc.${_os}" .bashrc.local; do
   [ -f "$HOME/${_bashrc}" ] && source "$HOME/${_bashrc}"
 done
 
-PATH=$PATH:/usr/local/bin:$HOME/src/scripts:$HOME/bin
+# Build PATH
+PATH=$BASE_PATH
+PATH=$PATH:/usr/local/bin
+PATH=$PATH:$HOME/src/scripts
+PATH=$PATH:$HOME/bin
 
 # rbenv
 PATH=$PATH:$HOME/.rbenv/bin
+export PATH
 eval "$(rbenv init -)"
 
 # User specific aliases and functions
