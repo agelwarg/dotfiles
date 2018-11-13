@@ -18,18 +18,13 @@ for _bashrc in ".bashrc.${_os}" .bashrc.local; do
 done
 
 PATH=$PATH:/usr/local/bin:$HOME/src/scripts:$HOME/bin
-[ -z "${BASE_PATH}" ] && export BASE_PATH=$PATH
-goto () {
-  cd ${1}
-  _base="$(pwd)"
-  export PATH="${BASE_PATH}"
-  #export PATH="$HOME/src/gpe-server/vendor/ruby/bin:${PATH}" # ruby
-  export PATH="${_base}/BUILD:${PATH}" # agents
-  export PATH="${_base}/bin:${_base}/vendor/ruby/bin:${_base}/node_modules/.bin:${PATH}" # server
-}
+
+# rbenv
+PATH=$PATH:$HOME/.rbenv/bin
+eval "$(rbenv init -)"
 
 # User specific aliases and functions
 alias vim='TERM=xterm-256color vim'
 
-u () { rake database:migrate:force:up file=$1; }
-d () { rake database:migrate:force:down file=$1; }
+u () { bundle exec rake database:migrate:force:up file=$1; }
+d () { bundle exec rake database:migrate:force:down file=$1; }

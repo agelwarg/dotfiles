@@ -6,6 +6,9 @@ if [ -f ${_git_prompt} ]; then
   GIT_PS1_SHOWCOLORHINTS=1
 fi
 
+# rbenv
+. $HOME/.rbenv/completions/rbenv.bash
+
 # User specific aliases and functions
 alias ls='ls --color=auto'
-alias gpe="goto ~/src/gpe-server"
+alias gpe="cd ~/src/gpe-server"

@@ -1,4 +1,4 @@
-PATH=~/Homebrew/bin:~/go/bin:~/Homebrew/opt/openssl/bin:$PATH
+PATH=~/Homebrew/bin:~/Homebrew/sbin:~/go/bin:~/Homebrew/opt/openssl/bin:$PATH
 export PATH
 
 # GIT: prompt and completions
@@ -13,7 +13,7 @@ fi
 
 # User specific aliases and functions
 alias ls='ls -G'
-alias gpe="goto ~/src/galileo/gpe-server"
+alias gpe="cd ~/src/galileo/gpe-server"
 alias s="git sourcetree"
 alias e="etcdctl -C http://192.168.100.131:2379"
 
