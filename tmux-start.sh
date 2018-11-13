@@ -81,6 +81,12 @@ if [ $? -eq 0 ]; then
     tmux select-pane -t 0
   done
 
+  # Enable sync for 2nd APP and DB windows
+  tmux select-window -t APP-2
+  tmux setw synchronize-panes on
+  tmux select-window -t DB-2
+  tmux setw synchronize-panes on
+
   # Start vim
   tmux select-window -t "vim"
   tmux send-keys "gpe && vim" C-m
