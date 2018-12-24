@@ -13,7 +13,7 @@ EDITOR=vim
 export EDITOR
 
 # Build PATH
-PATH=$BASE_PATH
+[ -n "${BASE_PATH}" ] && PATH=$BASE_PATH
 PATH=$PATH:/usr/local/bin
 PATH=$PATH:$HOME/src/scripts
 PATH=$PATH:$HOME/bin
