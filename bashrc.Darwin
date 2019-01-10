@@ -1,4 +1,6 @@
-PATH=~/Homebrew/bin:~/Homebrew/sbin:~/go/bin:~/Homebrew/opt/openssl/bin:$PATH
+PATH=/usr/local/opt/kubernetes-cli/bin:$PATH
+PATH=/usr/local/opt/openssl/bin:$PATH
+PATH=~/go/bin:$PATH
 export PATH
 
 # GIT: prompt and completions
