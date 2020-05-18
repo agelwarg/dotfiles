@@ -17,10 +17,10 @@ set guioptions+=T
 colorscheme wombat256mod
 
 " trim trailing whitespace on any write
- autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
+autocmd! BufWrite * mark ' | silent! %s/\s\+$// | norm ''
 
 " trim whitespace at end of file on any write
- autocmd BufWrite * mark ' | silent! g/^[\s\l\n]*\%$/d | norm ''
+autocmd BufWrite * mark ' | silent! g/^[\s\l\n]*\%$/d | norm ''
 
 au BufReadCmd   *.sonas.gz    call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.xiv.gz      call tar#Browse(expand("<amatch>"))
@@ -37,6 +37,7 @@ au BufReadCmd   *.flash.gz    call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.gpfscluster.gz    call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.gem         call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.isilon.gz   call tar#Browse(expand("<amatch>"))
+au BufReadCmd   *.oracle.gz   call tar#Browse(expand("<amatch>"))
 
 au BufNewFile,BufRead *.rspec set filetype=ruby
 
