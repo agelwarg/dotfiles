@@ -38,6 +38,7 @@ au BufReadCmd   *.gpfscluster.gz    call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.gem         call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.isilon.gz   call tar#Browse(expand("<amatch>"))
 au BufReadCmd   *.oracle.gz   call tar#Browse(expand("<amatch>"))
+au BufReadCmd   *.hitachi.gz  call tar#Browse(expand("<amatch>"))
 
 au BufNewFile,BufRead *.rspec set filetype=ruby
 
