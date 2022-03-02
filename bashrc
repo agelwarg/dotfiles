@@ -5,7 +5,6 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-
 set -o vi
 
 unset PROMPT_COMMAND
@@ -17,6 +16,9 @@ export EDITOR
 PATH=$PATH:$HOME/src/scripts
 PATH=$PATH:$HOME/bin
 
+# Krew path for kubectl plugins
+PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 _os=$(uname -s)
 for _bashrc in ".bashrc.${_os}" .bashrc.local; do
   [ -f "$HOME/${_bashrc}" ] && source "$HOME/${_bashrc}"
@@ -26,6 +28,11 @@ done
 PATH=$PATH:$HOME/.rbenv/bin
 export PATH
 eval "$(rbenv init -)"
+
+# nodenv
+PATH=$PATH:$HOME/.nodenv/bin
+export PATH
+eval "$(nodenv init -)"
 
 # User specific aliases and functions
 alias vim='TERM=xterm-256color vim'
