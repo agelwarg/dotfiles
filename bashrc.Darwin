@@ -8,6 +8,8 @@ GOPRIVATE="codebox.galileosuite.com"
 PATH="$GOBIN:$PATH"
 export PATH
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 BREW_PREFIX="$(brew --prefix)"
 # GIT: prompt and completions
 if [ -f ${BREW_PREFIX}/etc/bash_completion ]; then
